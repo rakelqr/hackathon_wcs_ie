@@ -7,7 +7,18 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <div className='recommended'>
         
+        </div>
+        <div className='newness'>
+
+        </div>
+        <div className='trending'>
+
+        </div>
+
+
+
         <MapRestaurants></MapRestaurants>
         
       </div>
