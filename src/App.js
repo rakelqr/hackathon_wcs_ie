@@ -8,7 +8,8 @@ export default class App extends Component {
     return (
       <div>
         <div className='recommended'>
-        
+          
+
         </div>
         <div className='newness'>
 
@@ -16,7 +17,6 @@ export default class App extends Component {
         <div className='trending'>
 
         </div>
-
 
 
         <MapRestaurants></MapRestaurants>
