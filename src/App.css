@@ -22,9 +22,6 @@
   scrollbar-width: 2px;
 }
 
-.scroll-horiz::-webkit-scrollbar {
-
-}
 
 .scroll-box {
   width: 90px;
@@ -41,3 +38,6 @@
   width: 55em;
 }
 
+.leaflet-container {
+  height: 500px;
+}
