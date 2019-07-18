@@ -42,7 +42,6 @@ export default class MapRestaurants extends Component {
                 key={index}
                 >
                 <Popup>
-
                   <h4>{menu.nombre}</h4>
                   <Markdown source={menu.menu_espanol}/>
                 </Popup>
