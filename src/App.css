@@ -13,6 +13,28 @@
   color: red;
 }
 
+.scroll-horiz {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 10px;
+  height: 100px;
+  scrollbar-width: 2px;
+}
+
+.scroll-horiz::-webkit-scrollbar {
+
+}
+
+.scroll-box {
+  width: 90px;
+  height: 90px;
+  border: 1px solid grey;
+  background: #eee;
+  margin-right: 10px;
+  display: inline-block;
+}
+
 /* Map Component  */
 .mapContainer {
   height: 40em;
