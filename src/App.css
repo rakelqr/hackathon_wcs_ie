@@ -1,4 +1,21 @@
+  /* App.js CSS   */
+.navBar {
+  margin: 25px;
+}
+
+.tabLike {
+  padding: 5px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: x-large;
+}
+
+.selected {
+  color: red;
+}
+
+/* Map Component  */
 .mapContainer {
   height: 40em;
   width: 55em;
 }
+
