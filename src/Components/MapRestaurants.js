@@ -31,7 +31,7 @@ export default class MapRestaurants extends Component {
         return (
           <Map center={position} zoom={this.state.zoom}>
             <TileLayer
-              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              attribution='&copy; MenuFinder Corporation 2019'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {this.state.menus.map((menu, index) => 
