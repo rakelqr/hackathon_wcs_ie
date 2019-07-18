@@ -6,6 +6,8 @@ const connection = require('./conf');
 
 
 server.use('/', express.static(path.join(__dirname, '/build')));
+server.use('/map', express.static(path.join(__dirname, '/build')));
+
 
 
 server.set("port", port); 

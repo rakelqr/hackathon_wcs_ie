@@ -1,15 +1,17 @@
-import React, { Component } from 'react'
-import Scroll from './Scroll'
+import React, { Component } from 'react';
+import HeaderWithLogo from './HeaderWithLogo';
+import Scroll from './Scroll';
 
 export default class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <header>Recomentados</header>
+                <HeaderWithLogo/>
+                <header className='headerHome'>Recomendados</header>
                     <Scroll/>
-                <header>Novedades</header>
+                <header className='headerHome'>Novedades</header>
                     <Scroll/>
-                <header>Populares</header>
+                <header className='headerHome'>Populares</header>
                     <Scroll/>
             </React.Fragment>
         )
