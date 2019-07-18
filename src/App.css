@@ -23,6 +23,25 @@
   width: 100%; */
 }
 
+.tabLike {
+  position: left;
+  /* display: block; */
+  color: #181717;
+  text-align: center;
+  padding: 0px 16px;
+  text-decoration: none;
+}
+
+.tabLike:hover {
+  background: rgb(244,0,0);
+  color: black;
+}
+
+.tabLike.selected {
+  background-color: rgb(81, 82, 83);
+  color: RGB(244,0,0);
+}
+
 /* Home Component */
 
 .logoTop {
@@ -38,6 +57,7 @@
   display: flex;
   justify-content: center;
   margin-top: 2px;
+  letter-spacing: 2px;
 }
 
 /* Home > Scroll Component */
@@ -51,9 +71,6 @@
   scrollbar-width: 2px;
 }
 
-.scroll-horiz::-webkit-scrollbar {
-
-}
 
 /* Home > Scroll Component > Scroll Box */
 
@@ -72,3 +89,6 @@
   width: 55em;
 }
 
+.leaflet-container {
+  height: 500px;
+}
