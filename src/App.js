@@ -19,8 +19,6 @@ export default class App extends Component {
         </div>
 
 
-        <MapRestaurants></MapRestaurants>
-        
       </div>
     )
   }
