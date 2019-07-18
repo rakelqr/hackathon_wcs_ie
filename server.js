@@ -31,10 +31,17 @@ server.get('/api/menus', (req, res) => {
 // UN MENU
 server.get('/api/menus/:id', (req, res) => {
     connection.query('SELECT * FROM menus WHERE id = ?',[req.params.id], (err, results) => {
-            if (err) {
-                res.sendStatus(500);
-            } else {
-                res.json(results);
+        // PASO 1: Si hay "err", haz console.log() y manda 500    
+        if (err) {
+                res.sendStatus(500)
+        }
+        // PASO 2: Si el array de results esta vacio, manda 404
+        if(results.length === 0){
+            res.sendStatus(404)
+        }
+         else {
+        // PASO 3: Si todo va bien, manda el primer objeto del array
+            res.json(results[0]);
             }
         });
     }
