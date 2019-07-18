@@ -10,14 +10,43 @@
 }
 
 .selected {
-  color: red;
+  color: RGB(244,0,0);
 }
+
+/* NavBar */
+
+.navBar {
+  overflow: hidden;
+  background-color: #3333;
+  /* position: absolute;
+  bottom: 0;
+  width: 100%; */
+}
+
+/* Home Component */
+
+.logoTop {
+  display: flex;
+  justify-content: center;
+  margin-top: 1%;
+  padding: 2%;
+  background-color: rgb(81, 82, 83);
+}
+
+.headerHome {
+  color: RGB(244,0,0);
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+/* Home > Scroll Component */
 
 .scroll-horiz {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  padding: 10px;
+  padding: 8px;
   height: 100px;
   scrollbar-width: 2px;
 }
@@ -26,12 +55,14 @@
 
 }
 
+/* Home > Scroll Component > Scroll Box */
+
 .scroll-box {
-  width: 90px;
+  width: 95px;
   height: 90px;
   border: 1px solid grey;
   background: #eee;
-  margin-right: 10px;
+  margin-right: 8px;
   display: inline-block;
 }
 
