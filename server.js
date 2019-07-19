@@ -3,11 +3,11 @@ const path = require('path');
 const server = express();
 const port = process.env.PORT || 8000;
 const connection = require('./conf');
-
+const cookieParser = require("cookie-parser"); // Necesario para que se pueda leer la cookies
 
 server.use('/', express.static(path.join(__dirname, '/build')));
 server.use('/map', express.static(path.join(__dirname, '/build')));
-
+server.use(cookieParser());
 
 
 server.set("port", port); 
@@ -23,6 +23,12 @@ server.get('/api/menus', (req, res) => {
                 console.log(err);
                 res.sendStatus(500);
             } else {
+                console.log(req.cookies)
+                //identificación del usuario a través de cookies del navegador 
+                if (!req.cookies || !req.cookies.uid)
+                    res.cookie('uid', Math.floor(Math.random() * Number.MAX_SAFE_INTEGER), {
+                        httpOnly: true 
+                    })
                 res.json(results);
             }
         });
@@ -33,10 +39,17 @@ server.get('/api/menus', (req, res) => {
 // UN MENU
 server.get('/api/menus/:id', (req, res) => {
     connection.query('SELECT * FROM menus WHERE id = ?',[req.params.id], (err, results) => {
-            if (err) {
-                res.sendStatus(500);
-            } else {
-                res.json(results);
+        // PASO 1: Si hay "err", haz console.log() y manda 500    
+        if (err) {
+                res.sendStatus(500)
+        }
+        // PASO 2: Si el array de results esta vacio, manda 404
+        if(results.length === 0){
+            res.sendStatus(404)
+        }
+         else {
+        // PASO 3: Si todo va bien, manda el primer objeto del array
+            res.json(results[0]);
             }
         });
     }
