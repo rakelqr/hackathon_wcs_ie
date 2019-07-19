@@ -58,7 +58,7 @@ export default class MapRestaurants extends Component {
                   shadowSize: null,
                   shadowRetinaUrl: null,
                   shadowAnchor: null,
-                  iconSize: new L.Point(40, 55)
+                  iconSize: new L.Point(30, 40)
                 }); 
 
                 return <Marker 
