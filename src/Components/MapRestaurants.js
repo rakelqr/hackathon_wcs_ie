@@ -41,11 +41,7 @@ export default class MapRestaurants extends Component {
               attribution='&copy; MenuFinder Corporation 2019'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-              <Marker position={
-                    position
-                }>
-              </Marker>
-
+             
             {this.state.menus.map((menu, index) => {
 
                 const icon = new L.Icon({
@@ -69,10 +65,17 @@ export default class MapRestaurants extends Component {
                 >
                 <Popup>
                   <h4>{menu.nombre}</h4>
-                  <Markdown source={menu.menu_espanol}/>
+                  <Markdown 
+                    source={menu.menu_espanol}/>
                 </Popup>
               </Marker>
             })}
+             <Marker position={
+                    position
+                }>
+              </Marker>
+
+
           </Map>
         )
       }
