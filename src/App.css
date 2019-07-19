@@ -92,3 +92,7 @@
 .leaflet-container {
   height: 500px;
 }
+
+.marker-alto {
+  z-index: 1;
+}
