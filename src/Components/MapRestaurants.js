@@ -15,13 +15,20 @@ export default class MapRestaurants extends Component {
     }
     
     componentDidMount = () => {
-        fetch('/api/menus')
+      fetch('/api/menus')
         .then(res => res.json())
         .then(data => {
             this.setState({
                 menus: data
             });
         });
+        
+        navigator.geolocation.getCurrentPosition(result => {
+          this.setState({
+            lat: result.coords.latitude,
+            lng: result.coords.longitude
+          })
+        })
     }
 
 
@@ -34,6 +41,11 @@ export default class MapRestaurants extends Component {
               attribution='&copy; MenuFinder Corporation 2019'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+             <Marker position={
+                    position
+             }>
+
+              </Marker>
             {this.state.menus.map((menu, index) => 
                 <Marker position={[
                     menu.latitude,
