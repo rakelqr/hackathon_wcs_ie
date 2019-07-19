@@ -94,5 +94,5 @@
 }
 
 .marker-alto {
-  z-index: 1;
+  z-index: 999999999;
 }
