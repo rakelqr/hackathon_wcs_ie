@@ -7,7 +7,7 @@ export default class Scroll extends Component {
         return (
             <div className="scroll-horiz">
                 {menus.map(menu => 
-                           <div className="scroll-box">
+                           <div className="scroll-box" style={{backgroundImage: `url(${menu.imagen})`}}>
                            <h4 className="restaurant-name"> {menu.nombre} </h4>
                            <img src={Logo} alt='logo' height='20' />
                            <p className="restaurant-coste"> {menu.menu_coste} € </p>
