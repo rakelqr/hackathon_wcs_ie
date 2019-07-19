@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import { Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import Markdown from 'react-markdown';
-import Logo  from './Images/Pin.png';
-
+import L from 'leaflet';
 
 export default class MapRestaurants extends Component {
     constructor() {
@@ -42,26 +41,38 @@ export default class MapRestaurants extends Component {
               attribution='&copy; MenuFinder Corporation 2019'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-             <Marker position={
+              <Marker position={
                     position
-             }>
-
+                }>
               </Marker>
-            {this.state.menus.map((menu, index) => 
-                <Marker position={[
-                    menu.latitude,
-                    menu.longitude,
-                    
-                ]}
-                pin={ Logo }
-                key={ index }
+
+            {this.state.menus.map((menu, index) => {
+
+                const icon = new L.Icon({
+                  iconUrl: require('./Images/Pin.png'),
+                  iconRetinaUrl: require('./Images/Pin.png'),
+                  iconAnchor: null,
+                  shadowUrl: null,
+                  shadowSize: null,
+                  shadowRetinaUrl: null,
+                  shadowAnchor: null,
+                  iconSize: new L.Point(40, 55)
+                }); 
+
+                return <Marker 
+                  position={[
+                      menu.latitude,
+                      menu.longitude,
+                  ]}
+                  icon={icon}
+                  key={ index }
                 >
                 <Popup>
                   <h4>{menu.nombre}</h4>
                   <Markdown source={menu.menu_espanol}/>
                 </Popup>
               </Marker>
-            )}
+            })}
           </Map>
         )
       }
