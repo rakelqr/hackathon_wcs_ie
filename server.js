@@ -3,11 +3,11 @@ const path = require('path');
 const server = express();
 const port = process.env.PORT || 8000;
 const connection = require('./conf');
-
+const cookieParser = require("cookie-parser"); // Necesario para que se pueda leer la cookies
 
 server.use('/', express.static(path.join(__dirname, '/build')));
 server.use('/map', express.static(path.join(__dirname, '/build')));
-
+server.use(cookieParser());
 
 
 server.set("port", port); 
@@ -23,6 +23,12 @@ server.get('/api/menus', (req, res) => {
                 console.log(err);
                 res.sendStatus(500);
             } else {
+                console.log(req.cookies)
+                //identificación del usuario a través de cookies del navegador 
+                if (!req.cookies || !req.cookies.uid)
+                    res.cookie('uid', Math.floor(Math.random() * Number.MAX_SAFE_INTEGER), {
+                        httpOnly: true 
+                    })
                 res.json(results);
             }
         });
