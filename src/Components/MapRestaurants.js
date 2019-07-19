@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import Markdown from 'react-markdown';
+import Logo  from './Images/Pin.png';
 
 
 export default class MapRestaurants extends Component {
@@ -22,7 +23,7 @@ export default class MapRestaurants extends Component {
                 menus: data
             });
         });
-        
+
         navigator.geolocation.getCurrentPosition(result => {
           this.setState({
             lat: result.coords.latitude,
@@ -49,9 +50,11 @@ export default class MapRestaurants extends Component {
             {this.state.menus.map((menu, index) => 
                 <Marker position={[
                     menu.latitude,
-                    menu.longitude
+                    menu.longitude,
+                    
                 ]}
-                key={index}
+                pin={ Logo }
+                key={ index }
                 >
                 <Popup>
                   <h4>{menu.nombre}</h4>
