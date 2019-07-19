@@ -76,7 +76,7 @@ export default class MapRestaurants extends Component {
                 </Popup>
               </Marker>
             })}
-             <Marker className="marker-alto"
+             <Marker zIndexOffset={99999}
                 position={
                     position
                 }>
